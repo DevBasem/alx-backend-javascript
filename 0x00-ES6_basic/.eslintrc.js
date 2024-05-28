@@ -1,6 +1,4 @@
-
-{
-rts = {
+module.exports = {
   env: {
     browser: false,
     es6: true,
@@ -28,21 +26,10 @@ rts = {
       'WithStatement',
     ],
   },
-  overrides: [
+  overrides:[
     {
       files: ['*.js'],
       excludedFiles: 'babel.config.js',
     }
   ]
 };
-  "name": "0x00-ES6_basic",
-  "version": "1.0.0",
-  "description": "this is a readme",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
-}
