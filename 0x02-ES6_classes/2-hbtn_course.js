@@ -1,8 +1,8 @@
 class HolbertonCourse {
   constructor(name, length, students) {
-    this._name = this._validateName(name);
-    this._length = this._validateLength(length);
-    this._students = this._validateStudents(students);
+    this._name = HolbertonCourse._validateName(name);
+    this._length = HolbertonCourse._validateLength(length);
+    this._students = HolbertonCourse._validateStudents(students);
   }
 
   // Getter and setter for name
@@ -11,7 +11,7 @@ class HolbertonCourse {
   }
 
   set name(value) {
-    this._name = this._validateName(value);
+    this._name = HolbertonCourse._validateName(value);
   }
 
   // Getter and setter for length
@@ -20,7 +20,7 @@ class HolbertonCourse {
   }
 
   set length(value) {
-    this._length = this._validateLength(value);
+    this._length = HolbertonCourse._validateLength(value);
   }
 
   // Getter and setter for students
@@ -29,26 +29,26 @@ class HolbertonCourse {
   }
 
   set students(value) {
-    this._students = this._validateStudents(value);
+    this._students = HolbertonCourse._validateStudents(value);
   }
 
-  // Validation methods
-  _validateName(name) {
+  // Static validation methods
+  static _validateName(name) {
     if (typeof name !== 'string') {
       throw new TypeError('Name must be a string');
     }
     return name;
   }
 
-  _validateLength(length) {
+  static _validateLength(length) {
     if (typeof length !== 'number') {
       throw new TypeError('Length must be a number');
     }
     return length;
   }
 
-  _validateStudents(students) {
-    if (!Array.isArray(students) || !students.every(student => typeof student === 'string')) {
+  static _validateStudents(students) {
+    if (!Array.isArray(students) || !students.every((student) => typeof student === 'string')) {
       throw new TypeError('Students must be an array of strings');
     }
     return students;
