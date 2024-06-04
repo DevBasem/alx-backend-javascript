@@ -1,14 +1,17 @@
-export default function cleanSet(set, startString) {
-  if (!Set.prototype.isPrototypeOf(set) || typeof startString !== 'string') {
-    throw new TypeError('Arguments must be Set and String');
+function cleanSet(set, startString) {
+  if (typeof startString !== 'string' || startString.length === 0) {
+    return '';
   }
 
-  const filteredValues = [];
+  const result = [];
+  
   for (const value of set) {
     if (value.startsWith(startString)) {
-      filteredValues.push(value.slice(startString.length));
+      result.push(value.slice(startString.length));
     }
   }
-
-  return filteredValues.join('-');
+  
+  return result.join('-');
 }
+
+export default cleanSet;

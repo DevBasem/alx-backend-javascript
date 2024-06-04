@@ -1,5 +1,5 @@
 export default function hasValuesFromArray(set, arr) {
-  if (!Set.prototype.isPrototypeOf(set) || !Array.isArray(arr)) {
+  if (!(set instanceof Set) || !Array.isArray(arr)) {
     throw new TypeError('Arguments must be Set and Array');
   }
 
