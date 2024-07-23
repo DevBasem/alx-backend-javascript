@@ -5,7 +5,8 @@ import router from './routes';
 const app = express();
 const port = 1245;
 
-app.locals.filePath = process.argv[2];
+const [, , filePath] = process.argv;
+app.locals.filePath = filePath;
 
 app.use('/', router);
 

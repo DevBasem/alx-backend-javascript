@@ -23,16 +23,16 @@ class StudentsController {
     try {
       const databaseFile = process.argv[2];
       const students = await readDatabase(databaseFile);
-      const major = req.params.major;
+      const { major } = req.params;
 
       if (major !== 'CS' && major !== 'SWE') {
         return res.status(500).send('Major parameter must be CS or SWE');
       }
 
       const list = students[major].join(', ');
-      res.status(200).send(`List: ${list}`);
+      return res.status(200).send(`List: ${list}`);
     } catch (error) {
-      res.status(500).send('Cannot load the database');
+      return res.status(500).send('Cannot load the database');
     }
   }
 }
